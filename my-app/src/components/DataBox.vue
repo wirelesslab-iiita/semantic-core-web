@@ -71,17 +71,13 @@ export default {
       const trimmed = inputMessage.value.trim()
 
       if (props.data?.type === 'input-text' && trimmed.length === 0) {
-        toast.error('⚠️ Please type a message.', {
-          theme: 'colored'
-        })
+        toast.error('⚠️ Please type a message.', { theme: 'colored' })
         return
       }
 
       const wordCount = trimmed.split(/\s+/).filter(word => word.length > 0).length
       if (props.data?.type === 'input-text' && wordCount < 2) {
-        toast.error('⚠️ Please enter at least two words.', {
-          theme: 'colored'
-        })
+        toast.error('⚠️ Please enter at least two words.', { theme: 'colored' })
         return
       }
 
@@ -90,9 +86,7 @@ export default {
       } else if (props?.status === 'completed') {
         emit('submit')
       } else if (props?.status === 'pending') {
-        toast.error('⚠️ Please complete the previous step before continuing.', {
-          theme: 'colored'
-        })
+        toast.error('⚠️ Please complete the previous step before continuing.', { theme: 'colored' })
       }
     }
 
@@ -119,14 +113,12 @@ export default {
   display: flex;
   border-radius: 2px;
   flex-direction: column;
-  flex-wrap: wrap;
   width: 400px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .header {
   background-color: #3F5BD9;
-  display: flex;
   padding: 12px 8px;
   border-radius: 2px;
   font-family: 'Barlow';
@@ -140,15 +132,17 @@ export default {
   flex-direction: column;
   height: 300px;
   padding: 8px;
+  max-width: 400px;
 }
 
 .message-box {
-  display: flex;
   background-color: #F0F0F0;
   border-radius: 2px;
   height: 90%;
+  width: 100%;
   overflow-y: auto;
   padding: 8px;
+  box-sizing: border-box;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -172,13 +166,15 @@ export default {
 .btn-container {
   padding: 8px 8px 0px 8px;
   display: flex;
-  gap: 4px;
-  flex-direction: row-reverse;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .btn-container .v-btn {
   background-color: #3F5BD9;
   color: white;
+  min-width: 80px;
 }
 
 @media (max-width: 480px) {
@@ -189,6 +185,14 @@ export default {
 
   .content {
     height: auto;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
+  .btn-container .v-btn {
+    flex-grow: 1;
   }
 }
 </style>
