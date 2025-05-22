@@ -19,6 +19,7 @@
       </div>
       <div class="btn-container">
         <v-btn @click="handleClick">{{ buttonText }}</v-btn>
+        <v-btn v-if="showDownload && status?.type === 'done'" @click="handleDownload">Download</v-btn>
       </div>
     </div>
   </div>
@@ -35,13 +36,12 @@ export default {
     data: Object,
     buttonText: String,
     message: String,
+    showDownload: Boolean,
     status: {
       type: String,
       default: 'pending',
     },
-    reset: {
-      type: Boolean,
-    }
+    reset: Boolean
   },
   emits: ['submit'],
   setup(props, { emit }) {
@@ -54,37 +54,47 @@ export default {
       }
     }
 
+    const handleDownload = () => {
+      if (!props.data?.message) return
+      const blob = new Blob([props.data.message], { type: 'text/plain;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = 'message.txt'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
+    }
+
     const handleClick = () => {
-      const trimmed = inputMessage.value.trim();
+      const trimmed = inputMessage.value.trim()
 
       if (props.data?.type === 'input-text' && trimmed.length === 0) {
         toast.error('⚠️ Please type a message.', {
           theme: 'colored'
-        });
-        return;
+        })
+        return
       }
 
-      const wordCount = trimmed.split(/\s+/).filter(word => word.length > 0).length;
+      const wordCount = trimmed.split(/\s+/).filter(word => word.length > 0).length
       if (props.data?.type === 'input-text' && wordCount < 2) {
         toast.error('⚠️ Please enter at least two words.', {
           theme: 'colored'
-        });
-        return;
+        })
+        return
       }
 
       if (props.data?.type === 'input-text') {
-        emit('submit', inputMessage.value);
-      }
-      else if (props?.status === 'completed') {
-        emit('submit');
-      }
-      else if (props?.status === 'pending') {
+        emit('submit', inputMessage.value)
+      } else if (props?.status === 'completed') {
+        emit('submit')
+      } else if (props?.status === 'pending') {
         toast.error('⚠️ Please complete the previous step before continuing.', {
           theme: 'colored'
-        });
+        })
       }
-    };
-
+    }
 
     onMounted(scrollToBottom)
     watch(() => props?.data?.message, scrollToBottom)
@@ -93,10 +103,12 @@ export default {
         inputMessage.value = ''
       }
     })
+
     return {
       msgBox,
       inputMessage,
       handleClick,
+      handleDownload,
     }
   },
 }
@@ -160,6 +172,7 @@ export default {
 .btn-container {
   padding: 8px 8px 0px 8px;
   display: flex;
+  gap: 4px;
   flex-direction: row-reverse;
 }
 

@@ -27,7 +27,13 @@ export default {
   name: 'AboutPage',
   computed: {
     pdfLink() {
-      return process.env.VUE_APP_GOOGLE_DRIVE_PDF_LINK || ''
+      const url = process.env.VUE_APP_GOOGLE_DRIVE_PDF_LINK || ''
+      if (!url) return ''
+      const match = url.match(/\/file\/d\/([^/]+)\//)
+      if (match && match[1]) {
+        return `https://drive.google.com/file/d/${match[1]}/preview`
+      }
+      return url
     }
   }
 }
