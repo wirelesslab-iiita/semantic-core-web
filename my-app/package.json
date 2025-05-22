@@ -5,37 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "start": "node server.js",
     "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "@google/generative-ai": "^0.24.0",
-    "@mdi/font": "5.9.55",
-    "axios": "^1.8.4",
-    "core-js": "^3.8.3",
-    "pinia": "^3.0.2",
-    "roboto-fontface": "*",
-    "vue": "^3.2.13",
-    "vue3-toastify": "^0.2.8",
-    "vuetify": "^3.0.0-beta.0",
-    "webfontloader": "^1.0.0"
-=======
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13"
->>>>>>> 22abc74 (init)
-=======
-    "@google/generative-ai": "^0.24.0",
-    "@mdi/font": "5.9.55",
-    "axios": "^1.8.4",
-    "core-js": "^3.8.3",
-    "pinia": "^3.0.2",
-    "roboto-fontface": "*",
-    "vue": "^3.2.13",
-    "vue3-toastify": "^0.2.8",
-    "vuetify": "^3.0.0-beta.0",
-    "webfontloader": "^1.0.0"
->>>>>>> d956f21 (Added Semantic Communication - Backend)
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -44,22 +15,22 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d956f21 (Added Semantic Communication - Backend)
     "eslint-plugin-vue": "^8.0.3",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
-    "vue-cli-plugin-vuetify": "~2.5.8",
-    "vuetify-loader": "^1.7.0",
     "webpack-plugin-vuetify": "^3.1.1"
-<<<<<<< HEAD
-=======
-    "eslint-plugin-vue": "^8.0.3"
->>>>>>> 22abc74 (init)
-=======
->>>>>>> d956f21 (Added Semantic Communication - Backend)
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "@mdi/font": "5.9.55",
+    "axios": "^1.8.4",
+    "core-js": "^3.8.3",
+    "pinia": "^3.0.2",
+    "roboto-fontface": "*",
+    "vue": "^3.2.13",
+    "vue3-toastify": "^0.2.8",
+    "vuetify": "^3.8.6",
+    "webfontloader": "^1.0.0"
   },
   "eslintConfig": {
     "root": true,
