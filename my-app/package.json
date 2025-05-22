@@ -28,6 +28,7 @@
     "pinia": "^3.0.2",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
+    "vue-router": "^4.5.1",
     "vue3-toastify": "^0.2.8",
     "vuetify": "^3.8.6",
     "webfontloader": "^1.0.0"

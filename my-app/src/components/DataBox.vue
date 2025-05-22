@@ -10,6 +10,7 @@
             v-model="inputMessage"
             class="text-input"
             placeholder="Enter message..."
+            @keydown.enter.prevent="handleClick"
           ></textarea>
         </template>
         <template v-else>
@@ -110,6 +111,7 @@ export default {
   width: 400px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
 .header {
   background-color: #3F5BD9;
   display: flex;
@@ -120,12 +122,14 @@ export default {
   font-size: 18px;
   color: white;
 }
+
 .content {
   display: flex;
   flex-direction: column;
   height: 300px;
   padding: 8px;
 }
+
 .message-box {
   display: flex;
   background-color: #F0F0F0;
@@ -136,6 +140,7 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .text-input {
   width: 100%;
   height: 100%;
@@ -151,13 +156,26 @@ export default {
   text-align: left;
   vertical-align: top;
 }
+
 .btn-container {
   padding: 8px 8px 0px 8px;
   display: flex;
   flex-direction: row-reverse;
 }
+
 .btn-container .v-btn {
   background-color: #3F5BD9;
   color: white;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .content {
+    height: auto;
+  }
 }
 </style>

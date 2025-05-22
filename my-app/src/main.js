@@ -7,10 +7,11 @@ import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import Vue3Toastify from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
-
+import router from './router'
 loadFonts()
 
 createApp(App)
+  .use(router)
   .use(vuetify)
   .use(createPinia())
   .use(Vue3Toastify, {

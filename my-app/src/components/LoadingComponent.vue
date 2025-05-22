@@ -101,4 +101,26 @@ export default {
   height: 10%;
   width: 100%;
 }
+
+@media (max-width: 480px) {
+  .outer-div.horizontal {
+    min-width: 100px;
+    height: 12px;
+  }
+
+  .outer-div.vertical {
+    height: 100px;
+    width: 12px;
+  }
+
+  .inner-div.horizontal.pending {
+    width: 20%;
+    height: 100%;
+  }
+
+  .inner-div.vertical.pending {
+    height: 15%;
+    width: 100%;
+  }
+}
 </style>
