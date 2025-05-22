@@ -198,7 +198,6 @@ export default {
     height: 60px;
     margin-bottom: 10px;
   }
-
   .titles {
     min-width: auto;
     flex-grow: 0;
@@ -237,6 +236,7 @@ export default {
 
   .footer {
     padding: 15px 20px;
+    display: none;
   }
 
   .footer-content {
