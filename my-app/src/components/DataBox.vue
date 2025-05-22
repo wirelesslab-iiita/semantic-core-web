@@ -194,5 +194,9 @@ export default {
   .btn-container .v-btn {
     flex-grow: 1;
   }
+
+  .message-box {
+    height: 200px;
+  }
 }
 </style>
