@@ -19,7 +19,7 @@
       </div>
       <div class="btn-container">
         <v-btn @click="handleClick">{{ buttonText }}</v-btn>
-        <v-btn v-if="showDownload && status?.type === 'done'" @click="handleDownload">Download</v-btn>
+        <v-btn v-if="showDownload && status === 'done'" @click="handleDownload">Download</v-btn>
       </div>
     </div>
   </div>
